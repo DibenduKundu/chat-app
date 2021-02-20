@@ -14,11 +14,11 @@ import firebase from 'firebase/app';
 import { useModalState } from '../misc/custom-hooks';
 import { database } from '../misc/firebase';
 
-const { srtingType } = Schema.Types;
+const { StringType } = Schema.Types;
 
 const model = Schema.Model({
-  name: srtingType().isRequired('Chat name is required'),
-  description: srtingType().isRequired('Description is required'),
+  name: StringType().isRequired('Chat name is required'),
+  description: StringType().isRequired('Description is required'),
 });
 
 const INITIAL_FORM = {
