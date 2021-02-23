@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router, Switch, useRouteMatch } from 'react-router';
+import { Route, Switch, useRouteMatch } from 'react-router';
 import { Col, Grid, Row } from 'rsuite';
 import Sidebar from '../../components/Sidebar';
 import { RoomsProvider } from '../../context/rooms.context';
@@ -28,13 +28,13 @@ const Home = () => {
                 <Chat />
               </Col>
             </Route>
-            <Router>
+            <Route>
               {isDesktop && (
                 <Col xs={24} md={8} className="h-100">
                   <h6 className="text-center mt-page">Please select chat</h6>
                 </Col>
               )}
-            </Router>
+            </Route>
           </Switch>
         </Row>
       </Grid>

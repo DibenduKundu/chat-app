@@ -16,7 +16,7 @@ const Chat = () => {
     return <Loader center vertical size="md" content="Loading" speed="slow" />;
   }
 
-  const currentRoom = rooms.fnd(room => room.id === chatId);
+  const currentRoom = rooms.find(room => room.id === chatId);
   if (!currentRoom) {
     return <h6 className="text-center mt-page">Chat {chatId} not found </h6>;
   }
@@ -25,12 +25,12 @@ const Chat = () => {
     <>
       <div className="chat-top">
         <ChatTop />
-        <div className="chat-middle">
-          <Messages />
-        </div>
-        <div className="chat-buttom">
-          <ChatBottom />
-        </div>
+      </div>
+      <div className="chat-middle">
+        <Messages />
+      </div>
+      <div className="chat-buttom">
+        <ChatBottom />
       </div>
     </>
   );
