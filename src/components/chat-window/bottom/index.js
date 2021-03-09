@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from 'react';
-import { Alert, Icon, Input, InputGroup } from 'rsuite';
+import React, { useState, useCallback } from 'react';
+import { InputGroup, Input, Icon, Alert } from 'rsuite';
 import firebase from 'firebase/app';
 import { useParams } from 'react-router';
-import { database } from '../../../misc/firebase';
 import { useProfile } from '../../../context/profile.context';
+import { database } from '../../../misc/firebase';
 import AttachmentBtnModal from './AttachmentBtnModal';
+import AudioMsgBtn from './AudioMsgBtn';
 
 function assembleMessage(profile, chatId) {
   return {
@@ -40,6 +41,7 @@ const Bottom = () => {
     msgData.text = input;
 
     const updates = {};
+
     const messageId = database.ref('messages').push().key;
 
     updates[`/messages/${messageId}`] = msgData;
@@ -104,6 +106,7 @@ const Bottom = () => {
     <div>
       <InputGroup>
         <AttachmentBtnModal afterUpload={afterUpload} />
+        <AudioMsgBtn afterUpload={afterUpload} />
         <Input
           placeholder="Write a new message here..."
           value={input}
