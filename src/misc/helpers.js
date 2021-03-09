@@ -60,5 +60,5 @@ export function groupBy(array, groupingKeyFn) {
     result[groupingKey].push(item);
 
     return result;
-  });
+  }, {});
 }
